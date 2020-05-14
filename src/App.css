@@ -24,6 +24,17 @@
   color: white;
 }
 
+.card-container {
+  display: flex;
+  flex-direction: column;
+}
+
+img {
+  height: 50%;
+  width: 50%;
+}
+
+
 .App-link {
   color: #61dafb;
 }
