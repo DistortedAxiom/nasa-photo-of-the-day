@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import "../App.css";
 import axios from 'axios';
-import { Jumbotron,  Collapse, Button } from 'reactstrap';
+import { Jumbotron,  Collapse, Button, Alert } from 'reactstrap';
 
 const url = 'https://api.nasa.gov/planetary/apod?'
 const api_key = 'api_key=DEMO_KEY'
@@ -9,6 +9,10 @@ const api_key = 'api_key=DEMO_KEY'
 export default function Card() {
     const [data, setData] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
+
+    const [visible, setVisible] = useState(true);
+
+    const onDismiss = () => setVisible(false);
 
     const toggle = () => setIsOpen(!isOpen);
 
@@ -26,6 +30,9 @@ export default function Card() {
     return (
         <div className="card-container">
             <Jumbotron>
+            <Alert color="primary" isOpen={visible} toggle={onDismiss}>
+            Check back daily for more picture of the day!
+            </Alert>
             <h2 className="title">
                 {data.title}
             </h2>
